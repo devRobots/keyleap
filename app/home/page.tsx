@@ -1,11 +1,12 @@
 import Header from '@/components/Header'
-import Support from '@/components/home/Support'
+import SupportButton from '@/components/standard/SupportButton'
 import { redirect } from 'next/navigation'
 import { auth } from '@clerk/nextjs/server'
 import { SignOutButton, UserButton } from '@clerk/nextjs'
 import { BookUser, LockKeyhole, LogOut } from 'lucide-react'
 import ServiceCard from '@/components/home/ServiceCard'
 import services from '@/consts/services'
+import SupportChat from '@/components/standard/SupportChat'
 
 export default async function HomeScreen() {
     const { userId } = await auth()
@@ -35,7 +36,7 @@ export default async function HomeScreen() {
                     </ServiceCard>
                 ))}
             </section>
-            <Support />
+            <SupportButton />
         </main>
     );
 }

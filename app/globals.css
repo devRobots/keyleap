@@ -49,3 +49,17 @@
   justify-center size-28 cursor-pointer hover:bg-accent-interactive-hover/10 
   transition-all duration-150 hover:scale-105;
 }
+
+.modal-backdrop {
+    @apply w-full h-full fixed z-50 overflow-y-auto items-center justify-center 
+    bg-background-primary/60 transition-all duration-150 transition-discrete;
+}
+
+.modal-content {
+    @apply relative left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 
+    bg-background-secondary rounded-lg shadow overflow-hidden transition-all duration-150 transition-discrete;
+}
+
+.bubble-message {
+    @apply flex gap-2 p-2 rounded-lg bg-accent-interactive;
+}
