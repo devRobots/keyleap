@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --primitive-charcoal-deep: oklch(0.13 0.015 275);
+  --primitive-neutral-dark-1: oklch(0.20 0.015 275);
+  --primitive-neutral-dark-2: oklch(0.28 0.015 275);
+
+  --primitive-off-white-cool: oklch(0.97 0.004 275);
+  --primitive-neutral-light-1: oklch(0.70 0.008 275);
+  --primitive-neutral-light-2: oklch(0.45 0.01 275);
+
+  --primitive-amethyst-accent-base: oklch(0.48 0.08 295);   
+  --primitive-amethyst-accent-hover: oklch(0.53 0.085 295); 
+  --primitive-amethyst-accent-light-base: oklch(0.60 0.12 295); 
+  --primitive-amethyst-accent-light-hover: oklch(0.65 0.125 295); 
+
+  --color-background-primary: oklch(0.98 0.003 240);       
+  --color-background-secondary: oklch(1 0 0);              
+  --color-text-default: oklch(0.25 0.01 240);             
+  --color-text-muted: oklch(0.45 0.01 240);              
+  --color-accent-interactive: var(--primitive-amethyst-accent-light-base);
+  --color-accent-interactive-hover: var(--primitive-amethyst-accent-light-hover);
+  --color-border-default: oklch(0.88 0.005 240);           
+  --color-focus-ring: var(--primitive-amethyst-accent-light-base);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-background-primary: var(--primitive-charcoal-deep);
+    --color-background-secondary: var(--primitive-neutral-dark-1);
+    --color-text-default: var(--primitive-off-white-cool);
+    --color-text-muted: var(--primitive-neutral-light-1);
+    --color-accent-interactive: var(--primitive-amethyst-accent-base);
+    --color-accent-interactive-hover: var(--primitive-amethyst-accent-hover);
+    --color-border-default: var(--primitive-neutral-dark-2);
+    --color-focus-ring: var(--primitive-amethyst-accent-base);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.support-button {
+  @apply flex gap-2 rounded-full text-accent-interactive font-medium px-4 py-2 
+  hover:bg-accent-interactive-hover/10 focus:outline-none focus:ring-2 focus:ring-offset-2 
+  focus:ring-offset-background-primary focus:ring-focus-ring transition-colors duration-150
+  cursor-pointer;
+}
+
+.service-card {
+  @apply bg-background-secondary rounded-md gap-2 p-2 flex flex-col items-center 
+  justify-center size-28 cursor-pointer hover:bg-accent-interactive-hover/10 
+  transition-all duration-150 hover:scale-105;
 }
