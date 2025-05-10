@@ -2,10 +2,11 @@ import Header from '@/components/Header'
 import SupportButton from '@/components/support/SupportButton'
 import { redirect } from 'next/navigation'
 import { auth } from '@clerk/nextjs/server'
-import { SignOutButton, UserButton } from '@clerk/nextjs'
+import { SignOutButton } from '@clerk/nextjs'
 import { BookUser, LockKeyhole, LogOut } from 'lucide-react'
 import ServiceCard from '@/components/home/ServiceCard'
 import services from '@/consts/services'
+import ProfileBadge from '@/components/ProfileBadge'
 
 export default async function HomeScreen() {
     const { userId } = await auth()
@@ -14,12 +15,10 @@ export default async function HomeScreen() {
     return (
         <main className="flex flex-col h-full items-center justify-center gap-12 bg-background-primary text-text-default">
             <Header />
-            <div className="flex font-mono items-center">
+            <div className="flex font-mono items-center gap-2">
                 Welcome
-                <div className='ml-3 bg-background-secondary rounded-full'>
-                    <UserButton showName />
-                </div>
-                <div className='ml-2 bg-red-700 rounded-full size-7 flex items-center justify-center cursor-pointer'>
+                <ProfileBadge />
+                <div className='bg-red-700 rounded-full size-8 flex items-center justify-center cursor-pointer'>
                     <SignOutButton>
                         <LogOut size={16} />
                     </SignOutButton>
