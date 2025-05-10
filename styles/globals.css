@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@midudev/tailwind-animations";
 
 @theme {
   --primitive-charcoal-deep: oklch(0.13 0.015 275);
@@ -47,7 +48,7 @@
 .service-card {
   @apply bg-background-secondary rounded-md gap-2 p-2 flex flex-col items-center 
   justify-center size-28 cursor-pointer hover:bg-accent-interactive-hover/10 
-  transition-all duration-150 hover:scale-105;
+  transition-all duration-150 hover:scale-105 select-none;
 }
 
 .modal-backdrop {
