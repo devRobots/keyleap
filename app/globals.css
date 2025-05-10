@@ -61,5 +61,5 @@
 }
 
 .bubble-message {
-    @apply flex gap-2 p-2 rounded-lg bg-accent-interactive;
+    @apply flex gap-2 p-2 rounded-lg w-fit;
 }

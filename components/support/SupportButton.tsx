@@ -1,9 +1,10 @@
 "use client"
 
-import { Headset } from "lucide-react";
 import { useState } from "react";
-import Modal from "../Modal";
-import SupportChat from "./SupportChat";
+import { Headset } from "lucide-react";
+
+import Modal from "@/components/Modal";
+import SupportChat from "@/components/support/SupportChat";
 
 export default function SupportButton() {
     const [open, setOpen] = useState(false);

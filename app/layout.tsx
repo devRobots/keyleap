@@ -1,7 +1,7 @@
 import { dark } from '@clerk/themes'
 import type { Metadata } from "next";
 import { ClerkProvider } from '@clerk/nextjs'
-import "./globals.css";
+import "@/app/globals.css";
 
 export const metadata: Metadata = {
   title: "KeyLeap",
