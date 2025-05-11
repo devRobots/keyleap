@@ -7,7 +7,7 @@ export function Note({ children }: { children: React.ReactNode }) {
                 <Pin className="rotate-45" size={16} />
                 <Trash2 className="cursor-pointer" size={16} />
             </header>
-            <main className="flex flex-col h-full justify-center p-3">
+            <main className="flex flex-col h-full justify-center p-3 cursor-default">
                 {children}
             </main>
         </div>
@@ -41,10 +41,12 @@ export default function Notes() {
                 <div className="grid gap-4">
                     <Note>
                         <strong>URGENTE</strong>
-                        Me han dicho que un tal "Gardy" va a empezar a supervisarme. Dicen que es por "incidentes reiterados relacionados con la divulgación de credenciales".
+                        <div>
+                        Me han dicho que un tal <span className="font-bold text-yellow-300 cursor-zoom-in">"GARY"</span> va a empezar a supervisarme. Dicen que es por "incidentes reiterados relacionados con la divulgación de credenciales".
+                        </div>
                     </Note>
                     <Note>
-                        Era "Gardy" o "Guardy"?<br /> No sé, no me acuerdo.
+                        Era "Gary" o "Guardy"?<br /> No sé, no me acuerdo.
                     </Note>
                 </div>
                 <div className="grid gap-4">

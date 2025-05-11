@@ -32,7 +32,7 @@ export default async function HomeScreen() {
                 ))}
             </section>
             {!orgRole && <SupportButton />}
-            <Modals />
+            <Modals role={orgRole} />
         </main>
     );
 }
