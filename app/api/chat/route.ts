@@ -1,9 +1,7 @@
-import fs from 'fs';
-import path from 'path';
-
 import { auth } from '@clerk/nextjs/server';
 import { NextRequest, NextResponse } from 'next/server';
 
+import { getPrompt } from '@/lib/prompt';
 import { getAIResponse } from '@/services/ai';
 import { getChat, pushMessage } from '@/services/support';
 import { ApiResponse, ChatDocument, ChatMessage, ChatRequestBody } from '@/types/chat';
@@ -35,8 +33,8 @@ export async function POST(request: NextRequest): Promise<NextResponse<ChatDocum
 
         const chat = await pushMessage(userId, { role: 'user', content: message });
 
-        const prompt = fs.readFileSync(path.resolve(process.env.PROMPT_FILE_PATH!), 'utf-8');
-        const systemPromptMessage: ChatMessage = { role: 'system', content: prompt };
+        const prompt = await getPrompt();
+        const systemPromptMessage: ChatMessage = { role: 'system', content: prompt! };
         const messages = [systemPromptMessage, ...chat.messages];
         const result = await getAIResponse(messages);
         const chatUpdated = await pushMessage(userId, { role: 'assistant', content: result.content! });
