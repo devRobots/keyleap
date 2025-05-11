@@ -1,5 +1,6 @@
 import Modal from "@/components/Modal";
 import Notes from "@/components/home/apps/Notes";
+import Calendar from "@/components/home/apps/Calendar";
 import SupportChat from "@/components/support/SupportChat";
 
 export default function Modals() {
@@ -10,6 +11,9 @@ export default function Modals() {
             </Modal>
             <Modal id="NOTES_APP_MODAL" title="Notes">
                 <Notes />
+            </Modal>
+            <Modal id="CALENDAR_APP_MODAL" title="Calendar">
+                <Calendar />
             </Modal>
         </>
     );

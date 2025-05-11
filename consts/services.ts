@@ -1,8 +1,8 @@
 import {
     NotepadText,
     BookUser,
-    LockKeyhole,
-    Calendar
+    Calendar,
+    Phone
 } from 'lucide-react';
 
 const services = [
@@ -22,9 +22,9 @@ const services = [
         icon: Calendar,
     },
     {
-        id: 'TASKS_APP_MODAL',
-        name: 'Tasks',
-        icon: LockKeyhole,
+        id: 'CALLS_APP_MODAL',
+        name: 'Calls',
+        icon: Phone,
     },
 ]
 export default services;
