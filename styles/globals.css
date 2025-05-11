@@ -73,8 +73,17 @@
     @apply bg-red-500/20 hover:bg-red-600/20 rounded-full size-16 p-3 flex items-center justify-center cursor-pointer;
 }
 
+.finish-call-button {
+    @apply bg-red-700 hover:bg-red-600 rounded-full size-16 p-3 flex items-center justify-center cursor-pointer;
+}
+
 .phone-number-button {
     @apply bg-accent-interactive-hover/20 hover:bg-accent-interactive-hover/40 rounded-full 
     aspect-square w-full md:size-16 flex items-center justify-center place-self-center cursor-pointer
     text-2xl;
+}
+
+.copy-button {
+    @apply bg-accent-interactive-hover/30 hover:bg-accent-interactive-hover/40 rounded-full size-16 p-3 flex 
+    items-center justify-center cursor-pointer;
 }
