@@ -1,8 +1,9 @@
 import Modal from "@/components/Modal";
 import Notes from "@/components/home/apps/Notes";
+import Calls from "@/components/home/apps/Calls";
 import Calendar from "@/components/home/apps/Calendar";
-import SupportChat from "@/components/support/SupportChat";
 import Contacts from "@/components/home/apps/Contacts";
+import SupportChat from "@/components/support/SupportChat";
 
 export default function Modals() {
     return (
@@ -18,6 +19,9 @@ export default function Modals() {
             </Modal>
             <Modal id="CONTACTS_APP_MODAL" title="Contacts">
                 <Contacts />
+            </Modal>
+            <Modal id="CALLS_APP_MODAL" title="Calls">
+                <Calls />
             </Modal>
         </>
     );

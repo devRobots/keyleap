@@ -64,3 +64,17 @@
 .bubble-message {
     @apply flex gap-2 p-2 rounded-lg w-fit;
 }
+
+.call-button {
+    @apply bg-green-700 hover:bg-green-600 rounded-full size-16 p-3 flex items-center justify-center cursor-pointer;
+}
+
+.clear-button {
+    @apply bg-red-500/20 hover:bg-red-600/20 rounded-full size-16 p-3 flex items-center justify-center cursor-pointer;
+}
+
+.phone-number-button {
+    @apply bg-accent-interactive-hover/20 hover:bg-accent-interactive-hover/40 rounded-full 
+    aspect-square w-full md:size-16 flex items-center justify-center place-self-center cursor-pointer
+    text-2xl;
+}
