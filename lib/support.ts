@@ -9,7 +9,7 @@ export async function fetchChat(): Promise<ChatDocument | null> {
 
         if (!response.ok) return null;
         return await response.json();
-    } catch (error: any) {
+    } catch {
         return null;
     }
 }
@@ -24,7 +24,7 @@ export async function pushMessage(message: string): Promise<ChatDocument | null>
 
         if (!response.ok) throw new Error('Failed to push message');
         return await response.json();
-    } catch (error: any) {
+    } catch {
         return null;
     }
 }

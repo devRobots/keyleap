@@ -42,11 +42,11 @@ export default function Notes() {
                     <Note>
                         <strong>URGENTE</strong>
                         <div>
-                        Me han dicho que un tal <span className="font-bold text-yellow-300 cursor-zoom-in">"GARY"</span> va a empezar a supervisarme. Dicen que es por "incidentes reiterados relacionados con la divulgación de credenciales".
+                        Me han dicho que un tal <span className="font-bold text-yellow-300 cursor-zoom-in">&quot;GARY&quot;</span> va a empezar a supervisarme. Dicen que es por &quot;incidentes reiterados relacionados con la divulgación de credenciales&quot;.
                         </div>
                     </Note>
                     <Note>
-                        Era "Gary" o "Guardy"?<br /> No sé, no me acuerdo.
+                        Era &quot;Gary&quot; o &quot;Guardy&quot;?<br /> No sé, no me acuerdo.
                     </Note>
                 </div>
                 <div className="grid gap-4">
@@ -54,7 +54,7 @@ export default function Notes() {
                         He escondido patitos de goma por toda la oficina virtual de KeyLeap. El primero que los encuentre todos se gana... ¡mi admiración eterna!
                     </Note>
                     <Note>
-                        Hoy he intentado explicarle a la cafetera de la oficina el concepto de "scope" en JavaScript. No ha ido bien.
+                        Hoy he intentado explicarle a la cafetera de la oficina el concepto de &quot;scope&quot; en JavaScript. No ha ido bien.
                     </Note>
                 </div>
             </div>

@@ -1,10 +1,15 @@
+import Image from "next/image";
+
 export default async function ProfileBadge({ username, imageUrl }: { username: string, imageUrl: string }) {
     return (
         <div className="flex items-center select-none">
             <div className="size-8 rounded-full overflow-hidden z-10">
-                <img
+                <Image
+                    unoptimized
                     src={imageUrl}
                     alt={`${username}'s avatar`}
+                    width={32}
+                    height={32}
                     className="w-full h-full object-cover"
                 />
             </div>

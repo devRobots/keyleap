@@ -8,15 +8,15 @@ import { getAIResponse } from '@/services/ai';
 import { getChat, pushMessage } from '@/services/support';
 import { ApiResponse, ChatDocument, ChatMessage, ChatRequestBody } from '@/types/chat';
 
-export async function GET(request: NextRequest): Promise<NextResponse<ChatDocument | ApiResponse>> {
+export async function GET(): Promise<NextResponse<ChatDocument | ApiResponse>> {
     const { userId } = await auth();
     if (!userId) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     try {
         const chat = await getChat(userId);
         return NextResponse.json(chat, { status: 200 });
-    } catch (error: any) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
+    } catch {
+        return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
     }
 }
 
@@ -42,7 +42,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<ChatDocum
         const chatUpdated = await pushMessage(userId, { role: 'assistant', content: result.content! });
 
         return NextResponse.json(chatUpdated, { status: 200 });
-    } catch (error: any) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
+    } catch {
+        return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
     }
 }

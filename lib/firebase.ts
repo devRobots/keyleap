@@ -18,7 +18,7 @@ const ensureFirebaseAdminInitialized = () => {
           privateKey: privateKey.replace(/\n/g, '\n'),
         }),
       });
-    } catch (error) {
+    } catch {
       throw new Error('Firebase Admin SDK initialization failed');
     }
   }
