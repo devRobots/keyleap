@@ -12,6 +12,7 @@ import SupportButton from '@/components/support/SupportButton'
 export default async function HomeScreen() {
     const { userId, orgRole } = await auth()
     if (!userId) redirect('/')
+    if (orgRole === "org:admin") redirect('/admin')
     const user = await currentUser()
     const username = user!.username || user!.fullName!
     const imageUrl = user!.imageUrl
