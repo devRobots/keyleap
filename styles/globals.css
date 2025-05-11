@@ -57,7 +57,7 @@
 }
 
 .modal-content {
-    @apply relative left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 
+    @apply relative left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 md:w-2/3
     bg-background-secondary rounded-lg shadow overflow-hidden transition-all duration-150 transition-discrete;
 }
 

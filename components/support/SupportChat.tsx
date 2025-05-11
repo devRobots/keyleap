@@ -33,6 +33,7 @@ export default function SupportChat() {
         setMessage('');
         const chat = await pushMessage(message);
         setMessages(chat?.messages || tmpMessages);
+        setFinished(chat?.goalAchieved || false);
         setWriting(false);
     };
 
