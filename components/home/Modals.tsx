@@ -2,6 +2,7 @@ import Modal from "@/components/Modal";
 import Notes from "@/components/home/apps/Notes";
 import Calendar from "@/components/home/apps/Calendar";
 import SupportChat from "@/components/support/SupportChat";
+import Contacts from "@/components/home/apps/Contacts";
 
 export default function Modals() {
     return (
@@ -14,6 +15,9 @@ export default function Modals() {
             </Modal>
             <Modal id="CALENDAR_APP_MODAL" title="Calendar">
                 <Calendar />
+            </Modal>
+            <Modal id="CONTACTS_APP_MODAL" title="Contacts">
+                <Contacts />
             </Modal>
         </>
     );
