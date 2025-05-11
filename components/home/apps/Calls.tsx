@@ -15,6 +15,8 @@ export default function Calls() {
     const [calling, setCalling] = useState(false);
 
     const ringTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const talkingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const hangupTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     const [playRinging, { stop: stopRinging, sound: ringingSoundInstance }] = useSound(
         RINGING_SOUND_SRC
@@ -33,6 +35,14 @@ export default function Calls() {
             clearTimeout(ringTimeoutRef.current);
             ringTimeoutRef.current = null;
         }
+        if (talkingTimeoutRef.current) {
+            clearTimeout(talkingTimeoutRef.current);
+            talkingTimeoutRef.current = null;
+        }
+        if (hangupTimeoutRef.current) {
+            clearTimeout(hangupTimeoutRef.current);
+            hangupTimeoutRef.current = null;
+        }
         if (ringingSoundInstance && ringingSoundInstance.playing()) {
             stopRinging();
         }
@@ -48,15 +58,27 @@ export default function Calls() {
         stopAllSoundsAndTimers();
         playRinging();
 
+        const contact = contactList.find((contact) => contact.username === "Guardy");
+        if (phone !== contact?.phone) {
+            talkingTimeoutRef.current = setTimeout(() => {
+                stopTalking();
+                playHangup();
+            }, 5000);
+            hangupTimeoutRef.current = setTimeout(() => {
+                endCall();
+            }, 6000);
+            return;
+        }
+
         ringTimeoutRef.current = setTimeout(() => {
             stopRinging();
             playTalking();
         }, 5000);
-        ringTimeoutRef.current = setTimeout(() => {
+        talkingTimeoutRef.current = setTimeout(() => {
             stopTalking();
             playHangup();
         }, 18500);
-        ringTimeoutRef.current = setTimeout(() => {
+        hangupTimeoutRef.current = setTimeout(() => {
             endCall();
         }, 19500);
     };
@@ -76,8 +98,6 @@ export default function Calls() {
 
     const call = () => {
         if (phone.length < 7) return;
-        const contact = contactList.find((contact) => contact.username === "Guardy");
-        if (phone !== contact?.phone) return;
         setCalling(true);
         handleInitiateCallSequence();
     };
