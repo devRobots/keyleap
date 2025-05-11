@@ -1,22 +1,16 @@
 "use client"
 
-import { useState } from "react";
 import { Headset } from "lucide-react";
-
-import Modal from "@/components/Modal";
-import SupportChat from "@/components/support/SupportChat";
+import { useModalStore } from "@/store/modals";
 
 export default function SupportButton() {
-    const [open, setOpen] = useState(false);
-
+    const { openModal } = useModalStore();
+    
     return (
         <>
-            <button onClick={() => setOpen(true)} className="support-button">
+            <button onClick={() => openModal('CHATBOT_MODAL')} className="support-button">
                 <Headset /> Contact support
             </button>
-            <Modal title="Support Chat" show={open} toggle={() => setOpen(!open)}>
-                <SupportChat />
-            </Modal>
         </>
     );
 }
