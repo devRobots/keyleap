@@ -87,3 +87,7 @@
     @apply bg-accent-interactive-hover/30 hover:bg-accent-interactive-hover/40 rounded-full size-16 p-3 flex 
     items-center justify-center cursor-pointer;
 }
+
+.admin-container {
+  @apply border border-green-900 bg-green-900/20;
+}
