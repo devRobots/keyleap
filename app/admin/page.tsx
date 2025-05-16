@@ -1,11 +1,12 @@
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import { getUserCount } from "@/services/users";
 
+import Image from "next/image";
 import Header from "@/components/Header";
 import Background from "@/components/admin/Background";
 import SignOutButton from "@/components/SignOutButton";
-import Image from "next/image";
-import { getUserCount } from "@/services/users";
+import AdminPanel from "@/components/admin/AdminPanel";
 
 export default async function Admin() {
     const { userId, orgRole } = await auth()
@@ -44,9 +45,8 @@ export default async function Admin() {
                         </article>
                     </section>
                 </aside>
-                <main className="flex flex-col w-full gap-2">
-                </main>
-                <pre className="admin-container w-full md:w-fit h-fit p-4 font-mono text-green-600 text-[10px] md:text-xs">
+                <AdminPanel />
+                <pre className="admin-container w-full md:w-fit h-fit md:hidden lg:block p-4 font-mono text-green-600 text-[10px] md:text-xs">
                     <p className="drop-shadow-[0px_0px_5px_rgba(0,255,0,0.7)]">[0.000000] Kernel command line: /boot/vmlinuz-5.4.0-77</p>
                     <p className="drop-shadow-[0px_0px_5px_rgba(0,255,0,0.7)]">[0.123456] smp: Bringing up secondary CPUs...</p>
                     <p className="drop-shadow-[0px_0px_5px_rgba(0,255,0,0.7)]">[0.567890] ACPI: Core Revision 20210105</p>
