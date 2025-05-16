@@ -1,6 +1,6 @@
 "use client"
 
-import contactList from "@/consts/contacts.json"
+import contactList from "@/data/contacts.json"
 
 import { useRef, useState } from "react"
 import { Phone, PhoneOff, CircleUser, Delete, X, Clipboard } from "lucide-react"

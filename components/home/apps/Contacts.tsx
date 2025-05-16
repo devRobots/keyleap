@@ -4,7 +4,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { CircleUserRound } from "lucide-react";
 
-import contactList from "@/consts/contacts.json"
+import contactList from "@/data/contacts.json"
 
 export function ContactCard({ username, phone }: { username: string, phone: string }) {
     return (

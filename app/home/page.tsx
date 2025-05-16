@@ -1,4 +1,4 @@
-import services from '@/consts/services'
+import services from '@/data/services'
 import { redirect } from 'next/navigation'
 import { auth, currentUser } from '@clerk/nextjs/server'
 

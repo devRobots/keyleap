@@ -10,7 +10,7 @@ const folders = [
     "sbin", "srv", "sys", "tmp", "usr", "var"
 ]
 
-const NUM_BROKEN_FOLDERS = 1;
+const NUM_BROKEN_FOLDERS = 8;
 
 const PAUSE_AT_END_MS = 600;
 const PULSE_DURATION_MS = 400;
