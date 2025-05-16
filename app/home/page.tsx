@@ -13,6 +13,7 @@ export default async function HomeScreen() {
     const { userId, orgRole } = await auth()
     if (!userId) redirect('/')
     if (orgRole === "org:admin") redirect('/admin')
+    if (orgRole === "org:root") redirect('/root')
     const user = await currentUser()
     const username = user!.username || user!.fullName!
     const imageUrl = user!.imageUrl
