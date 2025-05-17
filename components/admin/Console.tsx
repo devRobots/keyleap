@@ -54,7 +54,7 @@ const Console: React.FC = () => {
         if (path === '/') return fileSystemData;
         for (const segment of segments) {
             if (currentNode.type === 'file') return undefined;
-            const children = (currentNode as Directory).children;
+            const children: Record<string, Directory | File> = (currentNode as Directory).children;
             if (!children || !children[segment]) return undefined;
             currentNode = children[segment];
         }
