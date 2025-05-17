@@ -9,6 +9,8 @@ export default function SignOutButton({ role, userId }: { role?: string, userId:
     const logout = async () => {
         if (!role) {
             localStorage.setItem('KeyLeapUserId', userId);
+            localStorage.setItem('KeyLeapUsername', userId);
+            localStorage.setItem('KeyLeapImageUrl', userId);
             await fetch('/api/users', { method: 'POST' });
         }
 
