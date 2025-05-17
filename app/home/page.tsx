@@ -24,7 +24,7 @@ export default async function HomeScreen() {
             <div className="flex font-mono items-center gap-2">
                 Bienvenido
                 <ProfileBadge username={username} imageUrl={imageUrl} />
-                <SignOutButton role={orgRole} userId={userId} />
+                <SignOutButton role={orgRole} userId={userId} username={username} imageUrl={imageUrl} />
             </div>
             <section className='grid grid-cols-2 md:grid-cols-4 gap-4 w-fit'>
                 {services.map((item) => (

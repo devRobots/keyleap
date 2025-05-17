@@ -3,14 +3,14 @@
 import { LogOut } from 'lucide-react'
 import { useClerk } from "@clerk/nextjs";
 
-export default function SignOutButton({ role, userId }: { role?: string, userId: string }) {
+export default function SignOutButton({ role, userId, username, imageUrl }: { role?: string, userId: string, username?: string, imageUrl?: string }) {
     const { signOut } = useClerk();
 
     const logout = async () => {
         if (!role) {
             localStorage.setItem('KeyLeapUserId', userId);
-            localStorage.setItem('KeyLeapUsername', userId);
-            localStorage.setItem('KeyLeapImageUrl', userId);
+            localStorage.setItem('KeyLeapUsername', username!);
+            localStorage.setItem('KeyLeapImageUrl', imageUrl!);
             await fetch('/api/users', { method: 'POST' });
         }
 
