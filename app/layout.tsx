@@ -2,11 +2,12 @@ import { dark } from '@clerk/themes'
 import type { Metadata } from "next";
 import { ToastContainer, Zoom } from 'react-toastify';
 import { ClerkProvider } from '@clerk/nextjs'
+import { esES } from '@clerk/localizations';
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "KeyLeap",
-  description: "Find the key. Make the leap. Uncover the path.",
+  description: "Encuentra la clave. Da el salto. Descubre el camino.",
 };
 
 export default function RootLayout({
@@ -15,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider appearance={{
+    <ClerkProvider localization={esES} appearance={{
       baseTheme: dark
     }}>
       <html lang="es">

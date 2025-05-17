@@ -11,6 +11,7 @@
   "dependencies": {
     "@ai-sdk/google": "^1.2.17",
     "@ai-sdk/react": "^1.2.12",
+    "@clerk/localizations": "^3.16.0",
     "@clerk/nextjs": "^6.19.1",
     "@clerk/themes": "^2.2.42",
     "@midudev/tailwind-animations": "^0.2.0",
