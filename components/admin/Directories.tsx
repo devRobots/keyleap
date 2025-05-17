@@ -96,7 +96,7 @@ export default function Directories() {
                 <button hidden={debug || !forbidden} onClick={startFix}
                     style={{ animationIterationCount: "infinite" }}
                     className="bg-amber-700 text-white px-2 py-1 mr-2 animate-tada cursor-pointer hover:animate-none hover:bg-amber-600">
-                    Fix System
+                    Corregir Sistema
                 </button>
                 <FolderTree className="text-green-500 mr-2" />
                 {breadcrumbs.map((folder, index) =>

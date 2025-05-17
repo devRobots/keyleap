@@ -36,7 +36,7 @@ export default function Contacts() {
                 <input
                     onChange={(e) => searchContacts(e.target.value)}
                     className="bg-accent-interactive-hover/20 rounded-full px-4 py-2 w-full md:w-64"
-                    type="text" placeholder="Search contacts..." />
+                    type="text" placeholder="Buscar contactos..." />
             </header>
             <main className="grid grid-cols-2 md:grid-cols-6 gap-4 p-4 overflow-y-auto scrollbar-thin">
                 {contacts.map((contact) => (

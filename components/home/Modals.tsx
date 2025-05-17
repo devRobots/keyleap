@@ -9,22 +9,22 @@ export default function Modals({ role }: { role?: string }) {
     return (
         <>
             {!role && (
-                <Modal id="CHATBOT_MODAL" title="Support Chat">
+                <Modal id="CHATBOT_MODAL" title="Chat de soporte">
                     <SupportChat />
                 </Modal>
             )}
             {role && (
                 <>
-                    <Modal id="NOTES_APP_MODAL" title="Notes">
+                    <Modal id="NOTES_APP_MODAL" title="Notas">
                         <Notes />
                     </Modal>
-                    <Modal id="CALENDAR_APP_MODAL" title="Calendar">
+                    <Modal id="CALENDAR_APP_MODAL" title="Calendario">
                         <Calendar />
                     </Modal>
-                    <Modal id="CONTACTS_APP_MODAL" title="Contacts">
+                    <Modal id="CONTACTS_APP_MODAL" title="Contactos">
                         <Contacts />
                     </Modal>
-                    <Modal id="CALLS_APP_MODAL" title="Calls">
+                    <Modal id="CALLS_APP_MODAL" title="Telefono">
                         <Calls />
                     </Modal>
                 </>

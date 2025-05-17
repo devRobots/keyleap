@@ -24,7 +24,7 @@ export default async function Admin() {
                         <Header />
                     </section>
                     <section className="admin-container flex font-mono items-center justify-center gap-2 p-2">
-                        Welcome back admin
+                        Bienvenido de nuevo admin
                         <SignOutButton role={orgRole!} userId={userId!} />
                     </section>
                     <div className="hidden md:flex flex-col h-full gap-2 justify-end">

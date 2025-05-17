@@ -22,7 +22,7 @@ export default async function HomeScreen() {
         <main className="flex flex-col h-full items-center justify-center gap-12 bg-background-primary text-text-default">
             <Header />
             <div className="flex font-mono items-center gap-2">
-                Welcome
+                Bienvenido
                 <ProfileBadge username={username} imageUrl={imageUrl} />
                 <SignOutButton role={orgRole} userId={userId} />
             </div>

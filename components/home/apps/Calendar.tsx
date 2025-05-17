@@ -3,11 +3,11 @@ export default function Calendar() {
         <table className="w-full h-full">
             <thead className="sticky top-0 bg-background-primary/50 select-none">
                 <tr>
-                    <th className="p-2">LUNES</th>
-                    <th className="p-2">MARTES</th>
-                    <th className="p-2">MIERCOLES</th>
-                    <th className="p-2">JUEVES</th>
-                    <th className="p-2">VIERNES</th>
+                    <th className="p-2">LUN</th>
+                    <th className="p-2">MAR</th>
+                    <th className="p-2">MIE</th>
+                    <th className="p-2">JUE</th>
+                    <th className="p-2">VIE</th>
                 </tr>
             </thead>
             <tbody>

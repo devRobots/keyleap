@@ -8,22 +8,22 @@ import {
 const services = [
     {
         id: 'CONTACTS_APP_MODAL',
-        name: 'Contacts',
+        name: 'Contactos',
         icon: BookUser,
     },
     {
         id: 'NOTES_APP_MODAL',
-        name: 'Notes',
+        name: 'Notas',
         icon: NotepadText,
     },
     {
         id: 'CALENDAR_APP_MODAL',
-        name: 'Calendar',
+        name: 'Calendario',
         icon: Calendar,
     },
     {
         id: 'CALLS_APP_MODAL',
-        name: 'Calls',
+        name: 'Telefono',
         icon: Phone,
     },
 ]

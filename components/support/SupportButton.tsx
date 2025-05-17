@@ -9,7 +9,7 @@ export default function SupportButton() {
     return (
         <>
             <button onClick={() => openModal('CHATBOT_MODAL')} className="support-button">
-                <Headset /> Contact support
+                <Headset /> Contactar soporte
             </button>
         </>
     );

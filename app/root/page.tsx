@@ -9,7 +9,7 @@ export default async function Root() {
 
     return (
         <main className="flex flex-col h-full items-center justify-center gap-12 bg-black text-text-default font-mono">
-            <h1 className="text-4xl">El principio del fin</h1>
+            <h1 className="text-4xl text-center font-bold">El principio del fin</h1>
             <p>Has llegado al final de la línea</p>
             <div className="flex gap-4 items-center">
                 <a href="https://youtu.be/dQw4w9WgXcQ"
