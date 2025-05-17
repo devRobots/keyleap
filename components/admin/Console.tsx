@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, KeyboardEvent } from 'react';
+import React, { useState, useEffect, useRef, KeyboardEvent, useCallback } from 'react';
 import {
     type File,
     type Directory,
@@ -37,29 +37,18 @@ const Console: React.FC = () => {
     const prompt = `${loggedInUser}@${hostname}:${currentPath}$ `;
 
     useEffect(() => {
-        const bulletinNode = resolvePath('/security_bulletin.txt');
-        if (bulletinNode && bulletinNode.type === 'file') {
-            addOutputToHistory(<pre className="whitespace-pre-wrap">{bulletinNode.content}</pre>, true);
-        } else {
-            addOutputToHistory("Error: No se encontró el boletín de seguridad. Contacte a soporte.", false, false, true);
-        }
-        addOutputToHistory(`Sesión iniciada para ${loggedInUser}. Escribe 'help' para comandos.`);
-        inputRef.current?.focus();
-    }, []);
-
-    useEffect(() => {
         historyEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [history]);
 
-    const addEntryToHistory = (entry: Omit<HistoryEntry, 'id'>) => {
+    const addEntryToHistory = useCallback((entry: Omit<HistoryEntry, 'id'>) => {
         setHistory(prev => [...prev, { ...entry, id: Date.now() + Math.random() }]);
-    };
+    }, []);
 
-    const addOutputToHistory = (output: string | React.ReactNode, isAlert = false, isSuccess = false, isError = false) => {
+    const addOutputToHistory = useCallback((output: string | React.ReactNode, isAlert = false, isSuccess = false, isError = false) => {
         addEntryToHistory({ output, isAlert, isSuccess, isError });
-    };
+    }, [addEntryToHistory]);
 
-    const resolvePath = (path: string): Directory | File | undefined => {
+    const resolvePath = useCallback((path: string): Directory | File | undefined => {
         const segments = path.split('/').filter(s => s !== '');
         let currentNode: Directory | File = fileSystemData;
         if (path === '/') return fileSystemData;
@@ -70,7 +59,7 @@ const Console: React.FC = () => {
             currentNode = children[segment];
         }
         return currentNode;
-    };
+    }, [fileSystemData]);
 
     const getAbsolutePath = (rawPath: string): string => {
         if (rawPath.startsWith('/')) {
@@ -130,8 +119,7 @@ Procesando... (Esto puede tardar un momento simulado)`);
 
         let found = false;
         const attempts: string[] = [];
-        const actualPassToTest = `${keyword}${TARGET_USER_PASSWORD.replace(keyword, '')}`; // ej omega13 -> 13
-
+        
         const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
 
         (async () => {
@@ -237,11 +225,11 @@ Procesando... (Esto puede tardar un momento simulado)`);
                         <>
                             <span className="text-yellow-400">Resultado del Escaneo (Anomalías Menores):</span>
                             <br />
-                            - Directorio `/opt/old_projects` contiene artefactos no archivados.
+                            - Directorio &apos;/opt/old_projects&apos; contiene artefactos no archivados.
                             <br />
-                            - Fichero de configuración `/etc/audit_tools/legacy_scanner.conf` marcado como deprecado pero presente.
+                            - Fichero de configuración &apos;/etc/audit_tools/legacy_scanner.conf&apos; marcado como deprecado pero presente.
                             <br />
-                            - Múltiples entradas de `config_alerts.log` sobre el ex-admin 'aris' y políticas de contraseñas.
+                            - Múltiples entradas de &apos;config_alerts.log&apos; sobre el ex-admin &apos;aris&apos; y políticas de contraseñas.
                             <br />
                             <span className="text-cyan-400">Sugerencia:</span> Revisar configuraciones heredadas y logs detallados.
                         </>,
@@ -304,8 +292,8 @@ Procesando... (Esto puede tardar un momento simulado)`);
             const relevantCommands = ['cd', 'ls', 'cat'];
             const lexiconBrutePathArgs = ['-w'];
 
-            let pathToComplete = currentWord;
-            let baseCommandPart = currentCommand.substring(0, currentCommand.length - pathToComplete.length);
+            const pathToComplete = currentWord;
+            const baseCommandPart = currentCommand.substring(0, currentCommand.length - pathToComplete.length);
 
             let shouldCompletePath = relevantCommands.includes(commandName);
             if (commandName === 'lexicon_brute') {
@@ -387,6 +375,17 @@ Procesando... (Esto puede tardar un momento simulado)`);
         }
     };
 
+    useEffect(() => {
+        const bulletinNode = resolvePath('/security_bulletin.txt');
+        if (bulletinNode && bulletinNode.type === 'file') {
+            addOutputToHistory(<pre className="whitespace-pre-wrap">{bulletinNode.content}</pre>, true);
+        } else {
+            addOutputToHistory("Error: No se encontró el boletín de seguridad. Contacte a soporte.", false, false, true);
+        }
+        addOutputToHistory(`Sesión iniciada para ${loggedInUser}. Escribe 'help' para comandos.`);
+        inputRef.current?.focus();
+    }, [addOutputToHistory, resolvePath]);
+
     return (
         <div
             className="bg-black text-green-400 font-mono p-4 h-full min-h-[400px] w-full max-w-4xl mx-auto rounded-md border overflow-y-auto flex flex-col"
@@ -428,9 +427,9 @@ Procesando... (Esto puede tardar un momento simulado)`);
             ) : (
                 <div className="mt-auto pt-2 font-bold">
                     {isBruteForcing && <span className="text-yellow-400">LEXICON_BRUTE EN PROCESO...</span>}
-                    {gameWon && !isBruteForcing && <span className="text-lime-500">MISIÓN DE AUDITORÍA COMPLETADA, {loggedInUser}. Contraseña de '{TARGET_USER_TO_UNLOCK}' verificada.</span>}
+                    {gameWon && !isBruteForcing && <span className="text-lime-500">MISIÓN DE AUDITORÍA COMPLETADA, {loggedInUser}. Contraseña de &apos;{TARGET_USER_TO_UNLOCK}&apos; verificada.</span>}
                     {gameWon && <br />}
-                    {gameWon && <span className="text-gray-500">Puedes escribir 'clear' para reiniciar o 'exit' para finalizar.</span>}
+                    {gameWon && <span className="text-gray-500">Puedes escribir &apos;clear&apos; para reiniciar o &apos;exit&apos; para finalizar.</span>}
                 </div>
             )}
         </div>
