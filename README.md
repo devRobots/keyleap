@@ -21,7 +21,7 @@ Los niveles de privilegio en KeyLeap, representados por usuarios reales dentro d
 
 ## 📸 Capturas de Pantalla / GIFs
 
-![KeyLeap Mockup](imgs/mockup.png)
+![KeyLeap Mockup](public/images/mockup.png)
 
 
 ## 🔐 Uso de Clerk para la Autenticación y Autorización
