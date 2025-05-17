@@ -80,8 +80,8 @@ const Console: React.FC = () => {
     const handleLexiconBrute = (args: string[]) => {
         let targetUser: string | undefined;
         let keyword: string | undefined;
-        let numStart: number | undefined;
-        let numEnd: number | undefined;
+        let numStart: number = 0;
+        let numEnd: number = 99;
         let specificNum: number | undefined;
 
         for (let i = 0; i < args.length; i++) {
@@ -96,7 +96,7 @@ const Console: React.FC = () => {
             }
         }
 
-        if (!targetUser || !keyword || (!specificNum && (numStart === undefined || numEnd === undefined))) {
+        if (!targetUser || !keyword || (!specificNum && (numStart < 0 || numStart > 99 || numEnd < 0 || numEnd > 99 || numEnd < numStart))) {
             addOutputToHistory("Uso incorrecto. Ver 'cat /usr/local/bin/lexicon_brute'", false, false, true);
             return;
         }
