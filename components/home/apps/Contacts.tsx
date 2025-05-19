@@ -12,7 +12,7 @@ export function ContactCard({ username, phone }: { username: string, phone: stri
             onClick={() => {
                 navigator.clipboard.writeText(phone);
                 if (toast.isActive(1)) return;
-                toast.success('Phone number copied to clipboard', { toastId: 1 });
+                toast.success('Teléfono copiado al portapapeles', { toastId: 1 });
             }}
             className="bg-accent-interactive-hover/20 hover:bg-accent-interactive-hover/40 hover:cursor-pointer rounded-md aspect-square p-4 flex flex-col items-center justify-center gap-2">
             <CircleUserRound size={64} />
