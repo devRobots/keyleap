@@ -1,9 +1,11 @@
+import "@/styles/globals.css";
 import { dark } from '@clerk/themes'
 import type { Metadata } from "next";
-import { ToastContainer, Zoom } from 'react-toastify';
-import { ClerkProvider } from '@clerk/nextjs'
 import { esES } from '@clerk/localizations';
-import "@/styles/globals.css";
+
+import { ClerkProvider } from '@clerk/nextjs'
+import { Analytics } from "@vercel/analytics/next"
+import { ToastContainer, Zoom } from 'react-toastify';
 
 export const metadata: Metadata = {
   title: "KeyLeap",
@@ -20,6 +22,7 @@ export default function RootLayout({
       baseTheme: dark
     }}>
       <html lang="es">
+        <Analytics />
         <body className="h-screen w-screen antialiased">
           {children}
           <ToastContainer position="bottom-center"
