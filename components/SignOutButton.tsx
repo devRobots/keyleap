@@ -27,11 +27,11 @@ export default function SignOutButton({ role, userId, username, imageUrl }: { ro
         await signOut();
     };
 
-    const animationClass = startAnimation ? 'animate-pulsing' : '';
+    const animationClass = startAnimation ? 'animate-pulse' : '';
 
     return (
         <button onClick={logout} title="Cierra sesión y conectate con otro usuario"
-        style={{ "animation-iteration-count": "infinite" }}
+        style={{ animationIterationCount: "infinite" }}
         className={`bg-red-700 rounded-full size-8 flex items-center justify-center cursor-pointer ${animationClass}`}>
             <LogOut size={16} />
         </button>
