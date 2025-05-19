@@ -6,6 +6,7 @@ import { esES } from '@clerk/localizations';
 import { ClerkProvider } from '@clerk/nextjs'
 import { Analytics } from "@vercel/analytics/next"
 import { ToastContainer, Zoom } from 'react-toastify';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "KeyLeap",
@@ -23,6 +24,7 @@ export default function RootLayout({
     }}>
       <html lang="es">
         <Analytics />
+        <SpeedInsights />
         <body className="h-screen w-screen antialiased">
           {children}
           <ToastContainer position="bottom-center"
